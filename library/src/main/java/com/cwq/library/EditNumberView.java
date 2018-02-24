@@ -225,6 +225,16 @@ public class EditNumberView extends LinearLayout implements View.OnTouchListener
     }
 
 
+    public ImageView getLeftImageView() {
+        return iv_left;
+    }
+
+
+    public ImageView getRightImageView() {
+        return iv_right;
+    }
+
+
     /**
      * 设置可输入小数点位数
      *

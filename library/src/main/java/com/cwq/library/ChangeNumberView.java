@@ -213,4 +213,18 @@ public class ChangeNumberView extends LinearLayout implements View.OnTouchListen
     public double getUpdateStepValue() {
         return updateStep;
     }
+
+
+    public TextView getContentTextView() {
+        return tv_content;
+    }
+
+    public ImageView getLeftImageView() {
+        return iv_left;
+    }
+
+
+    public ImageView getRightImageView() {
+        return iv_right;
+    }
 }
