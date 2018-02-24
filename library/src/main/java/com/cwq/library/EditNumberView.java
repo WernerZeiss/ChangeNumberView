@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.text.InputFilter;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -154,6 +155,9 @@ public class EditNumberView extends LinearLayout implements View.OnTouchListener
      * 更新显示数值
      */
     private void stepUpdateContent(int flag) {
+        if (TextUtils.isEmpty(getContent()))
+            return;
+
         double value = Double.valueOf(getContent());
 
         if (1 == flag) {//左侧减法

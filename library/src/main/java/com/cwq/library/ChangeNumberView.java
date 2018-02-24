@@ -175,12 +175,13 @@ public class ChangeNumberView extends LinearLayout implements View.OnTouchListen
 
 
     /**
-     * 设置默认显示内容
+     * 设置默认显示内容，设置的数值不小于0
      *
      * @param content
      */
     public void setContent(double content) {
-        tv_content.setText(df.format(content));
+        if (content >= 0)
+            tv_content.setText(df.format(content));
     }
 
 

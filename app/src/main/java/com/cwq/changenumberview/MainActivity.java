@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Log.i("MainActivity测试", "onTextChange:" + charSequence);
+//                Log.i("MainActivity测试", "onTextChange:" + charSequence);
             }
 
             @Override

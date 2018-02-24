@@ -44,7 +44,6 @@ public class EditInputMoneyFilter implements InputFilter {
         //验证非数字或者小数点的情况
         Matcher m = p.matcher(source);
         if (oldtext.contains(".")) {
-            //已经存在小数点的情况下，只能输入数字
             if (!m.matches()) {
                 return "";
             }
@@ -66,7 +65,7 @@ public class EditInputMoneyFilter implements InputFilter {
             int index = oldtext.indexOf(".");
             int len = dend - index;
             //小数位只能2位
-            if (len > PONTINT_LENGTH) {
+            if (len > PONTINT_LENGTH || oldtext.length() - 1 - index >= 2) {
                 CharSequence newText = dest.subSequence(dstart, dend);
                 return newText;
             }
@@ -78,6 +77,7 @@ public class EditInputMoneyFilter implements InputFilter {
 
     /**
      * 设置小数点后位数
+     *
      * @param length
      */
     public void setPointLength(int length) {
