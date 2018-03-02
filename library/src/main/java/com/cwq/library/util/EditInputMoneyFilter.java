@@ -64,7 +64,6 @@ public class EditInputMoneyFilter implements InputFilter {
         if (oldtext.contains(".")) {
             int index = oldtext.indexOf(".");
             int len = dend - index;
-            //小数位只能2位
             if (len > PONTINT_LENGTH || oldtext.length() - 1 - index >= 2) {
                 CharSequence newText = dest.subSequence(dstart, dend);
                 return newText;

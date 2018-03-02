@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.text.InputFilter;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -242,17 +243,23 @@ public class EditNumberView extends LinearLayout implements View.OnTouchListener
     /**
      * 设置可输入小数点位数
      *
-     * @param length
+     * @param length 可输入小数点位数（length>=0）
      */
     public void setPointLength(int length) {
+        if (length < 0)
+            return;
         if (length > 0) {
             filter.setPointLength(length);
+            et_content.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
             et_content.setFilters(new InputFilter[]{filter});
             String temp = "##0.";
             for (int i = 0; i < length; i++) {
                 temp = temp + "0";
             }
             df = new DecimalFormat(temp);
+        } else {
+            et_content.setInputType(InputType.TYPE_CLASS_NUMBER);
+            df = new DecimalFormat("#0");
         }
     }
 }
