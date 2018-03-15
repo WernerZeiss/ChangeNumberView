@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="15dp"
+    android:background="#c8ffc5"
     tools:context="com.cwq.changenumberview.MainActivity">
 
     <com.cwq.library.ChangeNumberView
