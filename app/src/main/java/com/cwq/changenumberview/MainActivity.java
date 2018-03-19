@@ -18,6 +18,7 @@ import com.cwq.library.EditNumberView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ChangeNumberView changeNumberView;
     private EditText et;
+    private EditText et_delay;
     private Button button;
     private EditNumberView editNumberView;
     private EditText et_flag2;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         changeNumberView = findViewById(R.id.changeNumberView);
         et = findViewById(R.id.et);
+        et_delay = findViewById(R.id.et_delay);
         button = findViewById(R.id.button);
         editNumberView = findViewById(R.id.editNumberView);
         et_flag2 = findViewById(R.id.et_flag2);
@@ -80,6 +82,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String value = et.getText().toString().trim();
                 if (!TextUtils.isEmpty(value))
                     changeNumberView.setUpdateStepValue(Double.valueOf(value));
+
+                String delay = et_delay.getText().toString().trim();
+                if (!TextUtils.isEmpty(delay))
+                    changeNumberView.setChangeDelay(Long.valueOf(delay));
                 break;
             case R.id.button2:
                 String flag2 = et_flag2.getText().toString().trim();

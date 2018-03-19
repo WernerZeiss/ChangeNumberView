@@ -38,6 +38,8 @@ public class EditNumberView extends LinearLayout implements View.OnTouchListener
 
     //默认数据更改单位
     private double updateStep = 0.01;
+    //连续加减的间隔时间（ms）
+    private long mDelay = 100;
     private DecimalFormat df;
     private EditInputMoneyFilter filter;
 
@@ -91,7 +93,7 @@ public class EditNumberView extends LinearLayout implements View.OnTouchListener
                         stepUpdateContent(1);
                     }
                     if (!isReleased) {
-                        handler.postDelayed(new MyRunnable(1), 100);
+                        handler.postDelayed(new MyRunnable(1), mDelay);
                         leftCount++;
                     }
                     break;
@@ -100,7 +102,7 @@ public class EditNumberView extends LinearLayout implements View.OnTouchListener
                         stepUpdateContent(2);
                     }
                     if (!isReleased) {
-                        handler.postDelayed(new MyRunnable(2), 100);
+                        handler.postDelayed(new MyRunnable(2), mDelay);
                         rightCount++;
                     }
                     break;
@@ -207,6 +209,27 @@ public class EditNumberView extends LinearLayout implements View.OnTouchListener
     public void setUpdateStepValue(double step) {
         if (step > 0)
             updateStep = step;
+    }
+
+
+    /**
+     * 设置连续加减的间隔时间，大于0
+     *
+     * @param time 间隔时间ms
+     */
+    public void setChangeDelay(long time) {
+        if (time > 0)
+            mDelay = time;
+    }
+
+
+    /**
+     * 获取当前连续加减的间隔时间
+     *
+     * @return
+     */
+    public long getChangeDelay() {
+        return mDelay;
     }
 
 

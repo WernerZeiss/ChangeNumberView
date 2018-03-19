@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#c8ffc5"
     android:orientation="vertical"
     android:paddingLeft="15dp"
-    android:background="#c8ffc5"
     tools:context="com.cwq.changenumberview.MainActivity">
 
     <com.cwq.library.ChangeNumberView
@@ -23,6 +23,14 @@
         android:layout_marginTop="30dp"
         android:hint="输入增减单位值，默认0.01"
         android:inputType="numberDecimal"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/et_delay"
+        android:layout_width="wrap_content"
+        android:inputType="number"
+        android:layout_height="wrap_content"
+        android:hint="输入连续加减间隔时间，默认100ms"
         android:textSize="16sp" />
 
     <Button

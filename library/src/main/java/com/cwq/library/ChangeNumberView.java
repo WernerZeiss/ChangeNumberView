@@ -33,6 +33,9 @@ public class ChangeNumberView extends LinearLayout implements View.OnTouchListen
 
     //默认数据更改单位
     private double updateStep = 0.01;
+    //连续加减的间隔时间（ms）
+    private long mDelay = 100;
+
     private DecimalFormat df;
 
     public interface OnClickViewListener {
@@ -84,7 +87,7 @@ public class ChangeNumberView extends LinearLayout implements View.OnTouchListen
                         stepUpdateContent(1);
                     }
                     if (!isReleased) {
-                        handler.postDelayed(new MyRunnable(1), 100);
+                        handler.postDelayed(new MyRunnable(1), mDelay);
                         leftCount++;
                     }
                     break;
@@ -93,7 +96,7 @@ public class ChangeNumberView extends LinearLayout implements View.OnTouchListen
                         stepUpdateContent(2);
                     }
                     if (!isReleased) {
-                        handler.postDelayed(new MyRunnable(2), 100);
+                        handler.postDelayed(new MyRunnable(2), mDelay);
                         rightCount++;
                     }
                     break;
@@ -203,6 +206,27 @@ public class ChangeNumberView extends LinearLayout implements View.OnTouchListen
     public void setUpdateStepValue(double step) {
         if (step > 0)
             updateStep = step;
+    }
+
+
+    /**
+     * 设置连续加减的间隔时间（ms）
+     *
+     * @param time
+     */
+    public void setChangeDelay(long time) {
+        if (time > 0)
+            mDelay = time;
+    }
+
+
+    /**
+     * 获取当前连续加减的间隔时间
+     *
+     * @return
+     */
+    public long getChangeDelay() {
+        return mDelay;
     }
 
 
