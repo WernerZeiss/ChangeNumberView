@@ -57,7 +57,7 @@ setContent(double content)|设置显示的数字
 getContent()|获取显示的文字,String类型
 setUpdateStepValue(double step)|设置每次加减时的单位值
 getUpdateStepValue()|获取当前每次加减的单位值
-getContentTextView()|获取中间显示控件TextView
+getEditText()|获取中间控件EditText
 getLeftImageView()|获取左侧ImageView
 getRightImageView|获取右侧ImageView
 setPointLength(int length)|设置可输入小数点位数
